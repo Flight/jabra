@@ -1,7 +1,8 @@
 {
-  "name": "angular2-quickstart",
+  "name": "jabra",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "jabra",
+  "main": "index.html",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "docker-build": "docker build -t ng2-quickstart .",
@@ -15,11 +16,19 @@
     "tsc:w": "tsc -w",
     "typings": "typings",
     "webdriver:update": "webdriver-manager update"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+},
+"repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flight/jabra.git"
+},
+"keywords": [],
+"author": "",
+"license": "ISC",
+"bugs": {
+    "url": "https://github.com/Flight/jabra/issues"
+},
+"homepage": "https://github.com/Flight/jabra#readme",
+"dependencies": {
     "@angular/common":  "2.0.0-rc.1",
     "@angular/compiler":  "2.0.0-rc.1",
     "@angular/core":  "2.0.0-rc.1",
@@ -38,8 +47,8 @@
 
     "angular2-in-memory-web-api": "0.0.7",
     "bootstrap": "^3.3.6"
-  },
-  "devDependencies": {
+},
+"devDependencies": {
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
@@ -56,7 +65,13 @@
     "karma-htmlfile-reporter": "^0.2.2",
     "karma-jasmine": "^0.3.8",
     "protractor": "^3.3.0",
-    "rimraf": "^2.5.2"
-  },
-  "repository": {}
+    "rimraf": "^2.5.2",
+
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-webserver": "^0.9.1"
+}
 }

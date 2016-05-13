@@ -1,60 +1,44 @@
-# Angular 2 QuickStart Source
+# jabra [![Build Status](https://travis-ci.org/Flight/kfc.svg?branch=master)](https://travis-ci.org/Flight/kfc)
 
-This repository holds the TypeScript source code of the [angular.io quickstart](https://angular.io/docs/ts/latest/quickstart.html),
-the foundation for most of the documentation samples and potentially a good starting point for your application.
+## Quick start for developers
+Project uses node + angular 2 + Gulp for fast developing.
 
-It's been extended with testing support so you can start writing tests immediately.
+To install node: https://nodejs.org/en/
 
-**This is not the perfect arrangement for your application. It is not designed for production. 
-It exists primarily to get you started quickly with learning and prototyping in Angular 2**
+Then open your favorite Terminal and run these commands.
 
-We are unlikely to accept suggestions about how to grow this QuickStart into something it is not.
-Please keep that in mind before posting issues and PRs.
-
-## Create a new project based on the QuickStart
-
-Clone this repo into new project folder (e.g., `my-proj`).
-```bash
-git clone  https://github.com/angular/quickstart  my-proj
-cd my-proj
+```sh
+$ npm install --global gulp-cli
+$ npm install
 ```
 
-We have no intention of updating the source on `angular/quickstart`.
-Discard everything "git-like" by deleting the `.git` folder.
-```bash
-rm -rf .git
+To run webserver (for running game):
+```sh
+$ gulp webserver
+```
+Then go to http://localhost:8000/game.html
+
+To watch everything (js + scss):
+```sh
+$ gulp watch
 ```
 
-### Create a new git repo
-You could [start writing code](#start-development) now and throw it all away when you're done.
-If you'd rather preserve your work under source control, consider taking the following steps.
-
-Initialize this project as a *local git repo* and make the first commit:
-```bash
-git init
-git add .
-git commit -m "Initial commit"
+To run code linting (js + scss):
+```sh
+$ gulp
 ```
 
-Create a *remote repository* for this project on the service of your choice.
-
-Grab its address (e.g. *`https://github.com/<my-org>/my-proj.git`*) and push the *local repo* to the *remote*.
-```bash
-git remote add origin <repo-address>
-git push -u origin master
-```
-## Install npm packages
-
-Install the npm packages described in the `package.json` and verify that it works:
-
-**Attention Windows Developers:  You must run all of these commands in administrator mode**
-
-```bash
-npm install
-npm start
+To compile scss:
+```sh
+$ gulp scss
 ```
 
-The `npm start` command first compiles the application, 
+To run angular server
+```sh
+$ npm start
+```
+
+The `npm start` command first compiles the application,
 then simultaneously re-compiles and runs the `lite-server`.
 Both the compiler and the server watch for file changes.
 
@@ -83,7 +67,7 @@ Here are the test related scripts:
 
 ## Testing
 
-The QuickStart documentation doesn't discuss testing. 
+The QuickStart documentation doesn't discuss testing.
 This repo adds both karma/jasmine unit test and protractor end-to-end testing support.
 
 These tools are configured for specific conventions described below.
@@ -115,23 +99,23 @@ The `HTML-Reporter` is also wired in. That produces a prettier output; look for 
 
 **BEFORE RUNNING THE FIRST TEST** you must update the Selenium webdriver. Run `npm run webdriver:update`.
 
-E2E tests are usually at the project root, above the `app` folder. 
+E2E tests are usually at the project root, above the `app` folder.
 Their filenames must end in `e2e-spec.js`.
 
 E2E tests must be written in JavaScript (the author has not figured out how to write them in TS yet).
 
 Look for the example `e2e-spec.ts` in the root folder.
-Add more `e2e-spec.js` files as you wish (although one usually suffices for small projects); 
+Add more `e2e-spec.js` files as you wish (although one usually suffices for small projects);
 we configured protractor to find them.
 
 
 Thereafter, run them with `npm run e2e`.
 
 That command first compiles, then simultaneously starts the Http-Server at `localhost:8080`
-and launches protractor.  
+and launches protractor.
 
 The pass/fail test results appear at the bottom of the terminal window.
-A custom reporter (see `protractor.config.js`) generates a  `./protractor-results.txt` file 
+A custom reporter (see `protractor.config.js`) generates a  `./protractor-results.txt` file
 which is easier to read; this file is excluded from source control.
 
 Shut it down manually with Ctrl-C.
