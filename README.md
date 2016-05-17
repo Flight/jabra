@@ -8,16 +8,21 @@ To install node: https://nodejs.org/en/
 Then open your favorite Terminal and run these commands.
 
 ```sh
-$ npm install --global gulp-cli
+$ npm install -g gulp
 $ npm install
 ```
 
-To compile scss:
+To compile project:
 ```sh
-$ gulp scss
+$ gulp compile
 ```
 
 To run angular server
 ```sh
 $ gulp serve
+```
+
+To watch application changes:
+```sh
+$ gulp watch
 ```
