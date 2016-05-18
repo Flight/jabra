@@ -3,8 +3,8 @@ app/**/*.js
 app/**/*.map
 node_modules
 jspm_packages
-dist
-files/
+build
+files
 tmp
 .DS_Store
 *.sublime*
