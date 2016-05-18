@@ -1,4 +1,4 @@
-# jabra [![Build Status](https://travis-ci.org/Flight/kfc.svg?branch=master)](https://travis-ci.org/Flight/kfc)
+# jabra [![Build Status](https://travis-ci.org/Flight/jabra.svg?branch=master)](https://travis-ci.org/Flight/jabra)
 
 ## Quick start for developers
 Project uses node + angular 2 + Gulp for fast developing.
