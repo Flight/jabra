@@ -12,17 +12,12 @@ $ npm install -g gulp
 $ npm install
 ```
 
-To compile project:
+To build project:
 ```sh
-$ gulp compile
+$ gulp build
 ```
 
-To run angular server
+To run angular server and watch changes:
 ```sh
 $ gulp serve
-```
-
-To watch application changes:
-```sh
-$ gulp watch
 ```

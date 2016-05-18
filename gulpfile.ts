@@ -17,9 +17,7 @@ var PROJECT_PATH = {
 };
 var PROJECT_PATTERNS = {
     'scss': [
-        PROJECT_PATH.scss + '**/*.scss',
-        '!' + PROJECT_PATH.scss + '**/*.min.scss',
-        '!' + PROJECT_PATH.scss + 'libs/*.scss'
+        PROJECT_PATH.scss + '**/*.scss'
     ]
 };
 
@@ -58,7 +56,7 @@ gulp.task('compile', ['tslint'], function () {
 
     return tsResult.js
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('build/app'));
+        .pipe(gulp.dest('build'));
 });
 
 /**

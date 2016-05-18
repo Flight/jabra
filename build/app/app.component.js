@@ -31,6 +31,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 return AppComponent;
             }());
             exports_1("AppComponent", AppComponent);
+            App.controller('TodoCtrl', function ($scope, $http) {
+                $http.get('products.json')
+                    .then(function (res) {
+                    $scope.todos = res.data;
+                });
+            });
         }
     }
 });
