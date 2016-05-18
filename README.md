@@ -17,7 +17,7 @@ To build project:
 $ gulp build
 ```
 
-To run angular server and watch changes:
+To run server and watch changes:
 ```sh
 $ gulp serve
 ```
