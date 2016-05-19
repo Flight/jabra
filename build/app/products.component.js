@@ -33,7 +33,7 @@ System.register(['@angular/core', '@angular/common', '@angular/http', 'angular2-
                     var _this = this;
                     this.http = http;
                     this.getProducts(function (productsObject) {
-                        _this.data = productsObject.products.product[1];
+                        _this.data = productsObject.products.product;
                     });
                 }
                 Products.prototype.getProducts = function (callback) {

@@ -14,11 +14,11 @@ import {DataTableDirectives} from 'angular2-datatable/datatable';
 })
 
 export class Products {
-    private data;
+    private data : Array<ProductsNamespace.Product>;
 
     constructor(private http: Http) {
         this.getProducts((productsObject : ProductsNamespace.ProductsObject) => {
-            this.data = productsObject.products.product[1];
+            this.data = productsObject.products.product;
         });
     }
 
