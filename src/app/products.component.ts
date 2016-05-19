@@ -1,30 +1,31 @@
-import {Component} from 'angular2/core';
+/// <reference path="products.json.d.ts" />
+
+import {Component} from '@angular/core';
+import {DatePipe} from '@angular/common';
+import {HTTP_PROVIDERS, Http} from '@angular/http';
+import {DataTableDirectives} from 'angular2-datatable/datatable';
 
 @Component({
     selector: 'app',
-    templateUrl: 'app/products.html'
+    templateUrl: 'app/products.html',
+    providers: [HTTP_PROVIDERS],
+    directives: [DataTableDirectives],
+    pipes: [DatePipe]
 })
+
 export class Products {
+    private data;
 
+    constructor(private http: Http) {
+        this.getProducts((productsObject : ProductsNamespace.ProductsObject) => {
+            this.data = productsObject.products.product[1];
+        });
+    }
+
+    getProducts(callback) {
+        this.http.get('app/products.json')
+            .subscribe((data) => {
+                callback(data.json());
+            });
+    };
 }
-
-// App.controller('TodoCtrl', function ($scope, $http) {
-//     $http.get('products.json')
-//         .then(function (res) {
-//             $scope.todos = res.data;
-//         });
-// });
-
-
-// @Component({
-//     selector: 'my-component',
-//     template: '<div>Hello my name is {{name}}. <button (click)="sayMyName()">Say my name</button></div>'
-// })
-// export class MyComponent {
-//     constructor() {
-//         this.name = 'Max'
-//     }
-//     sayMyName() {
-//         console.log('My name is', this.name)
-//     }
-// }

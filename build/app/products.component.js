@@ -1,4 +1,5 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+/// <reference path="products.json.d.ts" />
+System.register(['@angular/core', '@angular/common', '@angular/http', 'angular2-datatable/datatable'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,23 +11,47 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, common_1, http_1, datatable_1;
     var Products;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (datatable_1_1) {
+                datatable_1 = datatable_1_1;
             }],
         execute: function() {
             Products = (function () {
-                function Products() {
+                function Products(http) {
+                    var _this = this;
+                    this.http = http;
+                    this.getProducts(function (productsObject) {
+                        _this.data = productsObject.products.product[1];
+                    });
                 }
+                Products.prototype.getProducts = function (callback) {
+                    this.http.get('app/products.json')
+                        .subscribe(function (data) {
+                        callback(data.json());
+                    });
+                };
+                ;
                 Products = __decorate([
                     core_1.Component({
                         selector: 'app',
-                        templateUrl: 'app/products.html'
+                        templateUrl: 'app/products.html',
+                        providers: [http_1.HTTP_PROVIDERS],
+                        directives: [datatable_1.DataTableDirectives],
+                        pipes: [common_1.DatePipe]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], Products);
                 return Products;
             }());
@@ -34,23 +59,5 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         }
     }
 });
-// App.controller('TodoCtrl', function ($scope, $http) {
-//     $http.get('products.json')
-//         .then(function (res) {
-//             $scope.todos = res.data;
-//         });
-// });
-// @Component({
-//     selector: 'my-component',
-//     template: '<div>Hello my name is {{name}}. <button (click)="sayMyName()">Say my name</button></div>'
-// })
-// export class MyComponent {
-//     constructor() {
-//         this.name = 'Max'
-//     }
-//     sayMyName() {
-//         console.log('My name is', this.name)
-//     }
-// }
 
 //# sourceMappingURL=products.component.js.map

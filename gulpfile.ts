@@ -62,24 +62,9 @@ gulp.task('compile', ['tslint'], function () {
 /**
  * Copy all resources that are not TypeScript files into build directory.
  */
-gulp.task('resources', function () {
+gulp.task('resources', function() {
     return gulp.src(['src/**/*', '!**/*.ts'])
         .pipe(gulp.dest('build'));
-});
-
-/**
- * Copy all required libraries into build directory.
- */
-gulp.task('libs', function () {
-    return gulp.src([
-            'node_modules/es6-shim/es6-shim.min.js',
-            'node_modules/angular2/bundles/angular2-polyfills.js',
-            'node_modules/systemjs/dist/system.src.js',
-            'node_modules/rxjs/bundles/Rx.js',
-            'node_modules/angular2/bundles/angular2.dev.js',
-            'node_modules/angular2/bundles/router.dev.js'
-        ])
-        .pipe(gulp.dest('build/lib'));
 });
 
 gulp.task('scss', function () {
@@ -95,7 +80,10 @@ gulp.task('scss', function () {
 gulp.task('serve', function () {
     browserSync({
         server: {
-            baseDir: 'build'
+            baseDir: 'build',
+            routes: {
+                '/node_modules': 'node_modules'
+            }
         }
     }, function (err, bs) {
         console.log(bs.options.getIn(['urls', 'local']));
@@ -124,6 +112,6 @@ gulp.task('watch', function () {
 /**
  * Build the project.
  */
-gulp.task('build', ['compile', 'resources', 'libs', 'scss'], function () {
+gulp.task('build', ['compile', 'resources', 'scss'], function () {
     console.log('Building the project ...');
 });

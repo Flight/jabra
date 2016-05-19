@@ -1,1 +1,29 @@
-Products test
+<table class="table table-striped table-hover table-products" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+        <tr>
+            <th class="column-thumbnail">
+                Thumbnail
+            </th>
+            <th>
+                <mfDefaultSorter by="displayName">Name</mfDefaultSorter>
+            </th>
+            <th class="column-price">
+                <mfDefaultSorter by="pricing.formattedListPrice">Price</mfDefaultSorter>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of mf.data">
+            <td class="column-thumbnail text-center"><img src="{{ item.thumbnailImage }}" alt="{{ item.displayName }}" width="100"></td>
+            <td>{{ item.displayName }}</td>
+            <td class="column-price">{{ item.pricing.formattedListPrice }}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>
