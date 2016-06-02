@@ -8,7 +8,7 @@ To install node: https://nodejs.org/en/
 Then open your favorite Terminal and run these commands.
 
 ```sh
-$ npm install -g gulp
+$ npm install -g gulp typings
 $ npm install
 ```
 
